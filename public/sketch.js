@@ -2,10 +2,13 @@ let clientSocket = io();
 
 clientSocket.on("connect", newConnection);
 
+clientSocket.on("mouseBroadcast", newBroadcast);
 function newConnection() {
   console.log(clientSocket.id);
 }
-
+function newBroadcast(data) {
+  console.log(data);
+}
 let easycam;
 let stars = [];
 
@@ -162,4 +165,13 @@ function Star1() {
 
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
+}
+
+function mouseMoved() {
+  let message = {
+    x: mouseX,
+    y: mouseY,
+  };
+
+  clientSocket.emit("mouse", message);
 }
