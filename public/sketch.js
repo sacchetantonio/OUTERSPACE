@@ -1,4 +1,12 @@
-var easycam;
+let clientSocket = io();
+
+clientSocket.on("connect", newConnection);
+
+function newConnection() {
+  console.log(clientSocket.id);
+}
+
+let easycam;
 let stars = [];
 
 let speed;
