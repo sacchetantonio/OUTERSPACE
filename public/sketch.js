@@ -1,20 +1,21 @@
 let clientSocket = io();
 
 clientSocket.on("connect", newConnection);
-
-clientSocket.on("mouseBroadcast", newBroadcast);
+clientSocket.on("mouseBroadcast", newMovement);
 function newConnection() {
   console.log(clientSocket.id);
 }
-function newBroadcast(data) {
-  console.log(data);
-}
+
+
+
 let easycam;
 let stars = [];
 
 let speed;
 let plant;
-let surface;
+let surface1;
+let surface2;
+let surface3;
 let cam;
 
 function preload() {
@@ -67,17 +68,18 @@ function draw() {
   noStroke();
   push();
   texture(cam);
+  scale(-1, 1);
   rotateZ(PI);
   sphere(150);
   pop();
   push();
   texture(surface2);
-  translate(800, 50, -2000);
+  translate(400, 50, -1000);
   sphere(100);
   pop();
   push();
   texture(surface3);
-  translate(300, 0, 1000);
+  translate(150, 0, 500);
   sphere(80);
   pop();
   push();
@@ -129,52 +131,10 @@ function Star1() {
   };
 }
 
-// function Star2() {
-//   this.x = random(width);
-//   this.y = random(-height, height);
-//   this.z = random(-widht, width);
-//   this.px = this.x;
 
-//   this.update = function () {
-//     this.x = this.x - speed;
-//     if (this.x < 1) {
-//       this.x = width;
-//       this.z = random(-width, width);
-//       this.y = random(-height, height);
-//       this.px = this.x;
-//     }
-//   };
 
-//   this.show = function () {
-//     fill(255);
-//     noStroke();
 
-//     var sz = map(this.z / this.x, 0, 1, 0, width);
-//     var sy = map(this.y / this.x, 0, 1, 0, height);
-
-//     var r = map(this.x, 0, width, 5, 0);
-//     ellipse(sx, sy, r, r);
-
-//     var pz = map(this.z / this.px, 0, 1, 0, width);
-//     var py = map(this.y / this.px, 0, 1, 0, height);
-
-//     this.px = this.x;
-
-//     stroke(255);
-//     strokeWeight(r);
-//     line(pz, py, sz, sy);
-//   };
-// }
-
+}
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
-}
-
-function mouseMoved() {
-  let message = {
-    x: mouseX,
-    y: mouseY,
-  };
-
-  clientSocket.emit("mouse", message);
 }
