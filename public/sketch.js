@@ -1,12 +1,10 @@
 let clientSocket = io();
 
 clientSocket.on("connect", newConnection);
-clientSocket.on("mouseBroadcast", newMovement);
+
 function newConnection() {
   console.log(clientSocket.id);
 }
-
-
 
 let easycam;
 let stars = [];
@@ -68,9 +66,11 @@ function draw() {
   noStroke();
   push();
   texture(cam);
+
   scale(-1, 1);
   rotateZ(PI);
   sphere(150);
+
   pop();
   push();
   texture(surface2);
@@ -131,10 +131,6 @@ function Star1() {
   };
 }
 
-
-
-
-}
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
 }
