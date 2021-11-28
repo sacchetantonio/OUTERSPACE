@@ -40,7 +40,7 @@ function setup() {
     stars[i] = new Star1();
   }
   cam = createCapture(VIDEO);
-  cam.hide;
+  cam.hide();
 }
 
 function draw() {
@@ -64,9 +64,12 @@ function draw() {
     stars[i].show();
     pop();
   }
-  texture(cam);
   noStroke();
+  push();
+  texture(cam);
+  rotateZ(PI);
   sphere(150);
+  pop();
   push();
   texture(surface2);
   translate(800, 50, -2000);
