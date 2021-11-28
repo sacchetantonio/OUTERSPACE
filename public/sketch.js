@@ -15,7 +15,7 @@ let stars = [];
 let speed;
 let plant;
 let surface;
-let button;
+let cam;
 
 function preload() {
   plant = loadModel("./addons/Senza nome.obj");
@@ -38,9 +38,9 @@ function setup() {
   });
   for (let i = 0; i < 400; i++) {
     stars[i] = new Star1();
-    // stars[i] = new Star2();
   }
-  //   button = createElement("button", button);
+  cam = createCapture(VIDEO);
+  cam.hide;
 }
 
 function draw() {
@@ -64,7 +64,7 @@ function draw() {
     stars[i].show();
     pop();
   }
-  texture(surface1);
+  texture(cam);
   noStroke();
   sphere(150);
   push();
