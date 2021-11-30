@@ -44,7 +44,7 @@ function setup() {
 
 function draw() {
   speed = 5; //map(mouseY, 0, height, 5, 5);
-  background(0, 0, 15);
+  background(0, 0, 10);
   pointLight(255, 255, 255, 1500, 1500, 0);
   pointLight(250, 255, 200, -1500, 0, -300);
   // translate(width / 2, height / 2);
