@@ -20,7 +20,7 @@ function preload() {
   plant = loadModel("./addons/Senza nome.obj");
   surface3 = loadImage("./addons/2k_mercury.jpeg");
   surface2 = loadImage("./addons/4k_ceres_fictional.jpeg");
-  surface1 = loadImage("./public/addons/IMG_1369.JPG");
+  surface1 = loadImage(".addons/4k_eris_fictional.jpeg");
 }
 function setup() {
   createCanvas(windowWidth, windowHeight, WEBGL);
@@ -38,8 +38,8 @@ function setup() {
   for (let i = 0; i < 400; i++) {
     stars[i] = new Star1();
   }
-  cam = createCapture(VIDEO);
-  cam.hide();
+  // cam = createCapture(VIDEO);
+  // cam.hide();
 }
 
 function draw() {
@@ -65,7 +65,7 @@ function draw() {
   }
   noStroke();
   push();
-  texture(surface1);
+  texture(surface3);
 
   scale(-1, 1);
   rotateZ(PI);
