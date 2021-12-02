@@ -38,8 +38,8 @@ function setup() {
   for (let i = 0; i < 400; i++) {
     stars[i] = new Star1();
   }
-  // cam = createCapture(VIDEO);
-  // cam.hide();
+  cam = createCapture(VIDEO);
+  cam.hide();
 }
 
 function draw() {
@@ -65,7 +65,7 @@ function draw() {
   }
   noStroke();
   push();
-  texture(surface1);
+  texture(cam);
 
   scale(-1, 1);
   rotateZ(PI);
